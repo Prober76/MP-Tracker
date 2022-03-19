@@ -1,3 +1,5 @@
+// Graficos de data
+
 var espaciosT = new Chart(
     document.getElementById('espaciosT').getContext('2d'), {
     type: 'bar',
@@ -123,6 +125,44 @@ var monedasT = new Chart(
             }
         }
 });
+
+//Cambios de nombre de equipos
+
+document.getElementById("confirmEq1").onclick = () =>{
+    espaciosT.data.labels[0] = document.getElementById("nomEq1").value;
+    minijuegosT.data.labels[0] = document.getElementById("nomEq1").value;
+    monedasT.data.labels[0] = document.getElementById("nomEq1").value;
+    espaciosT.update();
+    minijuegosT.update();
+    monedasT.update();
+};
+
+document.getElementById("confirmEq2").onclick = () =>{
+    espaciosT.data.labels[1] = document.getElementById("nomEq2").value;
+    minijuegosT.data.labels[1] = document.getElementById("nomEq2").value;
+    monedasT.data.labels[1] = document.getElementById("nomEq2").value;
+    espaciosT.update();
+    minijuegosT.update();
+    monedasT.update();
+};
+
+document.getElementById("confirmEq3").onclick = () =>{
+    espaciosT.data.labels[2] = document.getElementById("nomEq3").value;
+    minijuegosT.data.labels[2] = document.getElementById("nomEq3").value;
+    monedasT.data.labels[2] = document.getElementById("nomEq3").value;
+    espaciosT.update();
+    minijuegosT.update();
+    monedasT.update();
+};
+
+document.getElementById("confirmEq4").onclick = () =>{
+    espaciosT.data.labels[3] = document.getElementById("nomEq4").value;
+    minijuegosT.data.labels[3] = document.getElementById("nomEq4").value;
+    monedasT.data.labels[3] = document.getElementById("nomEq4").value;
+    espaciosT.update();
+    minijuegosT.update();
+    monedasT.update();
+};
 
 // RECEPTORES PARA EL EQUIPO 1
 //Monedas

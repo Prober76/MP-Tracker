@@ -1,0 +1,21 @@
+CREATE TABLE partidas(
+    nro SERIAL PRIMARY KEY,
+    usuario VARCHAR(255),
+    fecha VARCHAR(10) NOT NULL,
+    equipo1 VARCHAR(255),
+    eventos1 INT NOT NULL,
+    minijuegos1 INT NOT NULL,
+    monedas1 INT NOT NULL,
+    equipo2 VARCHAR(255),
+    eventos2 INT NOT NULL,
+    minijuegos2 INT NOT NULL,
+    monedas2 INT NOT NULL,
+    equipo3 VARCHAR(255),
+    eventos3 INT NOT NULL,
+    minijuegos3 INT NOT NULL,
+    monedas3 INT NOT NULL,
+    equipo4 VARCHAR(255),
+    eventos4 INT NOT NULL,
+    minijuegos4 INT NOT NULL,
+    monedas4 INT NOT NULL
+);
