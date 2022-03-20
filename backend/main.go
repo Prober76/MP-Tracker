@@ -1,7 +1,6 @@
 package main
 
 import (
-	"database/sql"
 	"encoding/json"
 	"html/template"
 	"log"
@@ -18,7 +17,29 @@ var port string = ":8080"
 
 const dbURI string = "postgres://Grove:root@localhost:5432/test"
 
-type partida struct {
+/* type partida struct {
+	Usuario     string `json:"usuario"`
+	Fecha       string `json:"fecha"`
+	Equipo1     string `json:"equipo1"`
+	Eventos1    int    `json:"eventos1"`
+	Minijuegos1 int    `json:"minijuegos1"`
+	Monedas1    int    `json:"monedas1"`
+	Equipo2     string `json:"equipo2"`
+	Eventos2    int    `json:"eventos2"`
+	Minijuegos2 int    `json:"minijuegos2"`
+	Monedas2    int    `json:"monedas2"`
+	Equipo3     string `json:"equipo3"`
+	Eventos3    int    `json:"eventos3"`
+	Minijuegos3 int    `json:"minijuegos3"`
+	Monedas3    int    `json:"monedas3"`
+	Equipo4     string `json:"equipo4"`
+	Eventos4    int    `json:"eventos4"`
+	Minijuegos4 int    `json:"minijuegos4"`
+	Monedas4    int    `json:"monedas4"`
+} */
+
+type partidas struct {
+	Nro         int    `gorm:"primaryKey"`
 	Usuario     string `json:"usuario"`
 	Fecha       string `json:"fecha"`
 	Equipo1     string `json:"equipo1"`
@@ -39,32 +60,21 @@ type partida struct {
 	Monedas4    int    `json:"monedas4"`
 }
 
-type partidas struct {
-	nro         int
-	usuario     string
-	fecha       string
-	equipo1     string
-	eventos1    int
-	minijuegos1 int
-	monedas1    int
-	equipo2     string
-	eventos2    int
-	minijuegos2 int
-	monedas2    int
-	equipo3     string
-	eventos3    int
-	minijuegos3 int
-	monedas3    int
-	equipo4     string
-	eventos4    int
-	minijuegos4 int
-	monedas4    int
-}
-
-var db *sql.DB
-
 func main() {
-	db, err := sql.Open("pgx", dbURI)
+	db, err := gorm.Open(postgres.Open(dbURI), &gorm.Config{})
+	if err != nil {
+		log.Fatal(err)
+	}
+	/* var filas_lectura []partidas
+	db.Find(&filas_lectura)
+	log.Println(filas_lectura) */
+
+	err = db.AutoMigrate(&partidas{})
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	/* db, err := sql.Open("pgx", dbURI)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -74,7 +84,7 @@ func main() {
 	}), &gorm.Config{})
 	if err != nil {
 		log.Fatal(err)
-	}
+	} */
 
 	tMain, err := template.ParseFiles("./frontend/main.html")
 	if err != nil {
@@ -89,13 +99,14 @@ func main() {
 		_ = tMain.Execute(w, nil)
 	})
 	http.HandleFunc("/verPartidas", func(w http.ResponseWriter, r *http.Request) {
-		var filas_lectura []partidas
+		tView.Execute(w, nil)
+		/* var filas_lectura []partidas
 		resultado := gormDB.Find(&filas_lectura)
 		if resultado.Error != nil {
 			log.Fatal(resultado.Error)
 		}
 		log.Println(filas_lectura)
-		tView.Execute(w, filas_lectura)
+		*/
 		/* filas, err := db.Query("SELECT * FROM partidas;")
 		if err != nil {
 			log.Fatal(err)
@@ -114,12 +125,13 @@ func main() {
 		_ = tView.Execute(w, filas_lectura) */
 	})
 	http.HandleFunc("/enviarDatos", func(w http.ResponseWriter, r *http.Request) {
-		var p partida
+		var p partidas
 		decodificar := json.NewDecoder(r.Body)
 		decodificar.DisallowUnknownFields()
 		decodificar.Decode(&p)
+		db.Create(&p)
 		// Insercion
-		stmt, err := db.Prepare(`INSERT INTO partidas(
+		/* stmt, err := db.Prepare(`INSERT INTO partidas(
 			usuario, fecha, equipo1, eventos1, minijuegos1, monedas1,
 			equipo2, eventos2, minijuegos2, monedas2,
 			equipo3, eventos3, minijuegos3, monedas3,
@@ -135,7 +147,7 @@ func main() {
 		if err != nil {
 			log.Fatal("No se ejecuto la consulta")
 		}
-		defer stmt.Close()
+		defer stmt.Close() */
 	})
 	http.Handle("/archivos/", http.StripPrefix("/archivos/", http.FileServer(http.Dir("./frontend"))))
 	_ = http.ListenAndServe(port, nil)
