@@ -5,17 +5,16 @@ import (
 	"html/template"
 	"log"
 	"net/http"
+	"os"
 
 	_ "github.com/jackc/pgx/v4/stdlib"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
 
-var port string = ":8080"
+var port string = ":" + os.Getenv("PORT")
 
-// const dbURI string = "postgres://cxzxcotjnylvwn:8a6255cfdba74f5ff4c1a77d5a28331b7722b95c3762d9d240ac69c5a170008c@ec2-52-44-209-165.compute-1.amazonaws.com:5432/d3abobrl3jlrrf"
-
-const dbURI string = "postgres://Grove:root@localhost:5432/test"
+const dbURI string = "postgres://cxzxcotjnylvwn:8a6255cfdba74f5ff4c1a77d5a28331b7722b95c3762d9d240ac69c5a170008c@ec2-52-44-209-165.compute-1.amazonaws.com:5432/d3abobrl3jlrrf"
 
 type partidas struct {
 	Nro         int    `gorm:"primaryKey"`
