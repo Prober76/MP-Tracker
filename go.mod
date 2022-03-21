@@ -1,8 +1,14 @@
+// +heroku goVersion go1.15
+
 module github.com/Prober76/MP-Tracker
 
 go 1.17
 
-require github.com/jackc/pgx/v4 v4.15.0
+require (
+	github.com/jackc/pgx/v4 v4.15.0
+	gorm.io/driver/postgres v1.3.1
+	gorm.io/gorm v1.23.3
+)
 
 require (
 	github.com/jackc/chunkreader/v2 v2.0.1 // indirect
@@ -16,6 +22,4 @@ require (
 	github.com/jinzhu/now v1.1.5 // indirect
 	golang.org/x/crypto v0.0.0-20220315160706-3147a52a75dd // indirect
 	golang.org/x/text v0.3.7 // indirect
-	gorm.io/driver/postgres v1.3.1 // indirect
-	gorm.io/gorm v1.23.3 // indirect
 )
