@@ -8,67 +8,66 @@
         <link rel="icon" type="image/x-icon" href="https://fs-prod-cdn.nintendo-europe.com/media/images/08_content_images/games_6/nintendo_switch_7/nswitch_mariopartysuperstars/Mario_Party_Superstars_Board_Koopa.png">
     </head>
     <body>
-        <h1>RESULTADOS</h1>
-        <table class="table table-hover">
-            <thead>
-            <tr>
-                <th scope="col">Nro</th>
-                <th scope="col">Usuario</th>
-                <th scope="col">Fecha</th>
-                <th scope="col">Equipo1</th>
-                <th scope="col">#Eventos1</th>
-                <th scope="col">#Minijuegos1</th>
-                <th scope="col">#Monedas1</th>
-                <th scope="col">Equipo2</th>
-                <th scope="col">#Eventos2</th>
-                <th scope="col">#Minijuegos2</th>
-                <th scope="col">#Monedas2</th>
-                <th scope="col">Equipo3</th>
-                <th scope="col">#Eventos3</th>
-                <th scope="col">#Minijuegos3</th>
-                <th scope="col">#Monedas3</th>
-                <th scope="col">Equipo4</th>
-                <th scope="col">#Eventos4</th>
-                <th scope="col">#Minijuegos4</th>
-                <th scope="col">#Monedas4</th>
-            </tr>
-            </thead>
-            <tbody>
-        {{range .}}
-            <tr>
-            <th>{{.Nro}}</th>
-            <td>{{.Usuario}}</td>
-            <td>{{.Fecha}}</td>
-            <td>{{.Equipo1}}</td>
-            <td>{{.Eventos1}}</td>
-            <td>{{.Minijuegos1}}</td>
-            <td>{{.Monedas1}}</td>
-            <td>{{.Equipo2}}</td>
-            <td>{{.Eventos2}}</td>
-            <td>{{.Minijuegos2}}</td>
-            <td>{{.Monedas2}}</td>
-            <td>{{.Equipo3}}</td>
-            <td>{{.Eventos3}}</td>
-            <td>{{.Minijuegos3}}</td>
-            <td>{{.Monedas3}}</td>
-            <td>{{.Equipo4}}</td>
-            <td>{{.Eventos4}}</td>
-            <td>{{.Minijuegos4}}</td>
-            <td>{{.Monedas4}}</td>
-            </tr>
-        {{end}}
-            </tbody>
-        </table>
-        <!-- <table class="table">
-            <thead>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a href="/" class="nav-link">Inicio</a>
+            </li>
+            <li class="nav-item">
+                <a href="/verPartidas" class="nav-link active" aria-current="page">Registros</a>
+            </li>
+        </ul>
+        <div class="bodyDiv">
+            <h1>RESULTADOS</h1>
+            <table class="table table-hover">
+                <thead>
                 <tr>
-                    <th scope="col">ID</th>
-
+                    <th scope="col">Nro</th>
+                    <th scope="col">Usuario</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Equipo1</th>
+                    <th scope="col">#Eventos1</th>
+                    <th scope="col">#Minijuegos1</th>
+                    <th scope="col">#Monedas1</th>
+                    <th scope="col">Equipo2</th>
+                    <th scope="col">#Eventos2</th>
+                    <th scope="col">#Minijuegos2</th>
+                    <th scope="col">#Monedas2</th>
+                    <th scope="col">Equipo3</th>
+                    <th scope="col">#Eventos3</th>
+                    <th scope="col">#Minijuegos3</th>
+                    <th scope="col">#Monedas3</th>
+                    <th scope="col">Equipo4</th>
+                    <th scope="col">#Eventos4</th>
+                    <th scope="col">#Minijuegos4</th>
+                    <th scope="col">#Monedas4</th>
                 </tr>
-            </thead>
-            <tbody>
-                
-            </tbody>
-        </table> -->
+                </thead>
+                <tbody>
+            {{range .}}
+                <tr>
+                <th>{{.Nro}}</th>
+                <td>{{.Usuario}}</td>
+                <td>{{.Fecha}}</td>
+                <td>{{.Equipo1}}</td>
+                <td>{{.Eventos1}}</td>
+                <td>{{.Minijuegos1}}</td>
+                <td>{{.Monedas1}}</td>
+                <td>{{.Equipo2}}</td>
+                <td>{{.Eventos2}}</td>
+                <td>{{.Minijuegos2}}</td>
+                <td>{{.Monedas2}}</td>
+                <td>{{.Equipo3}}</td>
+                <td>{{.Eventos3}}</td>
+                <td>{{.Minijuegos3}}</td>
+                <td>{{.Monedas3}}</td>
+                <td>{{.Equipo4}}</td>
+                <td>{{.Eventos4}}</td>
+                <td>{{.Minijuegos4}}</td>
+                <td>{{.Monedas4}}</td>
+                </tr>
+            {{end}}
+                </tbody>
+            </table>
+        </div>
     </body>
 </html>
