@@ -1,0 +1,1 @@
+babel js/$1.jsx --out-file js/$1.js

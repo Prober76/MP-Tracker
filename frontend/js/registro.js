@@ -1,67 +1,147 @@
-'use strict'
+'use strict';
 
+class NombreN extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: "Equipo #" + props.num
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handeClick = this.handeClick.bind(this);
+  }
 
-function RegistroN(props){
+  handeClick() {
+    console.log(num);
+    nameUGraph(parseInt(this.props.num));
+  }
+
+  handleChange(event) {
+    this.setState({
+      value: event.target.value
+    });
+  }
+
+  render() {
     return /*#__PURE__*/React.createElement("div", {
-      id: "react-reg-comp" + props.num
-    }, /*#__PURE__*/React.createElement("div", {
       className: "input-group"
     }, /*#__PURE__*/React.createElement("input", {
-      id: "nomEq"+props.num,
+      id: "nomEq" + this.props.num,
       className: "form-control",
       type: "text",
-      value: "Equipo #"+props.num
+      defaultValue: this.state.value,
+      onChange: this.handleChange
     }), /*#__PURE__*/React.createElement("button", {
-      id: "confirmEq1"+props.num,
+      id: "confirmEq" + this.props.num,
+      onClick: this.handleChange,
       className: "btn btn-danger"
-    }, "Confirmar nombre")), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("div", {
+    }, "Confirmar nombre"));
+  }
+
+}
+
+class MonedasN extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: "0"
+    };
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({
+      value: event.target.value
+    });
+  }
+
+  render() {
+    return /*#__PURE__*/React.createElement("div", {
       className: "input-group"
     }, /*#__PURE__*/React.createElement("span", {
       className: "input-group-text"
     }, "# Monedas ganadas"), /*#__PURE__*/React.createElement("span", {
       className: "input-group-text"
     }, /*#__PURE__*/React.createElement("strong", {
-      id: "monedas1"+props.num
+      id: "monedas" + this.props.num
     }, "0")), /*#__PURE__*/React.createElement("input", {
       className: "form-control",
-      id: "cmonedas1"+props.num,
+      id: "cmonedas" + this.props.num,
       type: "number",
-      value: "0"
+      value: this.state.value,
+      onChange: this.handleChange
     }), /*#__PURE__*/React.createElement("button", {
       className: "btn btn-danger",
-      id: "cmmas1"+props.num
-    }, "+")), /*#__PURE__*/React.createElement("div", {
-      className: "input-group"
-    }, /*#__PURE__*/React.createElement("span", {
-      className: "input-group-text"
-    }, "# Espacios eventos"), /*#__PURE__*/React.createElement("span", {
-      className: "input-group-text"
-    }, /*#__PURE__*/React.createElement("strong", {
-      id: "espacios1"+props.num
-    }, "0")), /*#__PURE__*/React.createElement("button", {
-      className: "btn btn-danger",
-      id: "emas1"+props.num
-    }, "+"), /*#__PURE__*/React.createElement("button", {
-      className: "btn btn-danger",
-      id: "emenos1"+props.num
-    }, "-")), /*#__PURE__*/React.createElement("div", {
-      className: "input-group"
-    }, /*#__PURE__*/React.createElement("span", {
-      className: "input-group-text"
-    }, "# Minijuegos ganados"), /*#__PURE__*/React.createElement("span", {
-      className: "input-group-text"
-    }, /*#__PURE__*/React.createElement("strong", {
-      id: "minijuegos1"+props.num
-    }, "0")), /*#__PURE__*/React.createElement("button", {
-      className: "btn btn-danger",
-      id: "mmas1"+props.num
-    }, "+"), /*#__PURE__*/React.createElement("button", {
-      className: "btn btn-danger",
-      id: "mmenos1"+props.num
-    }, "-")));
+      id: "cmmas" + this.props.num
+    }, "+"));
+  }
+
 }
 
-const reg1 = /*#__PURE__*/React.createElement(RegistroN, {
-    num: "1"
+function RegistroN(props) {
+  const [nombre, escribirNombre] = React.useState("Equipo #" + props.num);
+  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    className: "input-group"
+  }, /*#__PURE__*/React.createElement("input", {
+    id: "nomEq" + props.num,
+    className: "form-control",
+    type: "text",
+    defaultValue: nombre,
+    onChange: function (e) {
+      escribirNombre(e.target.value);
+    }
+  }), /*#__PURE__*/React.createElement("button", {
+    id: "confirmEq" + props.num,
+    className: "btn btn-danger"
+  }, "Confirmar nombre")), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("div", {
+    className: "input-group"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "input-group-text"
+  }, "# Monedas ganadas"), /*#__PURE__*/React.createElement("span", {
+    className: "input-group-text"
+  }, /*#__PURE__*/React.createElement("strong", {
+    id: "monedas" + props.num
+  }, "0")), /*#__PURE__*/React.createElement("input", {
+    className: "form-control",
+    id: "cmonedas" + props.num,
+    type: "number",
+    value: "0"
+  }), /*#__PURE__*/React.createElement("button", {
+    className: "btn btn-danger",
+    id: "cmmas" + props.num
+  }, "+")), /*#__PURE__*/React.createElement("div", {
+    className: "input-group"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "input-group-text"
+  }, "# Espacios eventos"), /*#__PURE__*/React.createElement("span", {
+    className: "input-group-text"
+  }, /*#__PURE__*/React.createElement("strong", {
+    id: "espacios" + props.num
+  }, "0")), /*#__PURE__*/React.createElement("button", {
+    className: "btn btn-danger",
+    id: "emas" + props.num
+  }, "+"), /*#__PURE__*/React.createElement("button", {
+    className: "btn btn-danger",
+    id: "emenos" + props.num
+  }, "-")), /*#__PURE__*/React.createElement("div", {
+    className: "input-group"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "input-group-text"
+  }, "# Minijuegos ganados"), /*#__PURE__*/React.createElement("span", {
+    className: "input-group-text"
+  }, /*#__PURE__*/React.createElement("strong", {
+    id: "minijuegos" + props.num
+  }, "0")), /*#__PURE__*/React.createElement("button", {
+    className: "btn btn-danger",
+    id: "mmas" + props.num
+  }, "+"), /*#__PURE__*/React.createElement("button", {
+    className: "btn btn-danger",
+    id: "mmenos" + props.num
+  }, "-")));
+}
+
+const REG1 = ReactDOM.createRoot(document.getElementById('REG1')); // const reg1 = <RegistroN num="14"/>;
+
+const reg1 = /*#__PURE__*/React.createElement(NombreN, {
+  num: "1"
 });
-ReactDOM.render(reg1,document.getElementById("reg1"));
+REG1.render(reg1);
