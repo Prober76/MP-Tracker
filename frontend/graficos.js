@@ -1,6 +1,6 @@
 // Graficos de data
 
-var espaciosT = new Chart(
+let espaciosT = new Chart(
     document.getElementById('espaciosT').getContext('2d'), {
     type: 'bar',
     data: {
@@ -41,7 +41,7 @@ var espaciosT = new Chart(
         }
     }
 });
-var minijuegosT = new Chart(
+let minijuegosT = new Chart(
     document.getElementById("minijuegosT").getContext("2d"),
     {
         type: 'bar',
@@ -83,7 +83,7 @@ var minijuegosT = new Chart(
             }
         }
 });
-var monedasT = new Chart(
+let monedasT = new Chart(
     document.getElementById("monedasT").getContext("2d"),
     {
         type: 'bar',
