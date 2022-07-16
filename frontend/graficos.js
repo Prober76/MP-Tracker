@@ -1,15 +1,27 @@
 // Graficos de data
+function arregloNombreEquipo(){
+    return [
+        document.getElementById("nomEq1").value,
+        document.getElementById("nomEq2").value,
+        document.getElementById("nomEq3").value,
+        document.getElementById("nomEq4").value
+    ];
+}
+
+function arregloColor(){
+    return [
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(255, 206, 86, 0.2)'
+    ];
+}
 
 let espaciosT = new Chart(
     document.getElementById('espaciosT').getContext('2d'), {
     type: 'bar',
     data: {
-        labels: [
-            document.getElementById("nomEq1").value,
-            document.getElementById("nomEq2").value,
-            document.getElementById("nomEq3").value,
-            document.getElementById("nomEq4").value
-        ],
+        labels: arregloNombreEquipo(),
         datasets: [{
             label: '# Espacios evento',
             data: [
@@ -18,18 +30,8 @@ let espaciosT = new Chart(
                 parseInt(document.getElementById("espacios3").innerHTML),
                 parseInt(document.getElementById("espacios4").innerHTML)
             ],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(255, 206, 86, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(255, 206, 86, 1)'
-            ],
+            backgroundColor: arregloColor(),
+            borderColor: arregloColor(),
             borderWidth: 1
         }]
     },
@@ -46,12 +48,7 @@ let minijuegosT = new Chart(
     {
         type: 'bar',
         data: {
-            labels: [
-                document.getElementById("nomEq1").value,
-                document.getElementById("nomEq2").value,
-                document.getElementById("nomEq3").value,
-                document.getElementById("nomEq4").value
-            ],
+            labels: arregloNombreEquipo(),
             datasets: [{
                 label: '# Minijuegos ganados',
                 data: [
@@ -60,18 +57,8 @@ let minijuegosT = new Chart(
                     parseInt(document.getElementById("minijuegos3").innerHTML),
                     parseInt(document.getElementById("minijuegos4").innerHTML)
                 ],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(255, 206, 86, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(255, 206, 86, 1)'
-                ],
+                backgroundColor: arregloColor(),
+                borderColor: arregloColor(),
                 borderWidth: 1
             }]
         },
@@ -82,18 +69,13 @@ let minijuegosT = new Chart(
                 }
             }
         }
-});
+    });
 let monedasT = new Chart(
     document.getElementById("monedasT").getContext("2d"),
     {
         type: 'bar',
         data: {
-            labels: [
-                document.getElementById("nomEq1").value,
-                document.getElementById("nomEq2").value,
-                document.getElementById("nomEq3").value,
-                document.getElementById("nomEq4").value
-            ],
+            labels: arregloNombreEquipo(),
             datasets: [{
                 label: '# Monedas ganadas',
                 data: [
@@ -102,18 +84,8 @@ let monedasT = new Chart(
                     parseInt(document.getElementById("monedas3").innerHTML),
                     parseInt(document.getElementById("monedas4").innerHTML)
                 ],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(255, 206, 86, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(255, 206, 86, 1)'
-                ],
+                backgroundColor: arregloColor(),
+                borderColor: arregloColor(),
                 borderWidth: 1
             }]
         },
@@ -124,4 +96,4 @@ let monedasT = new Chart(
                 }
             }
         }
-});
+    });
