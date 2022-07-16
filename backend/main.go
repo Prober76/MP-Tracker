@@ -14,7 +14,7 @@ import (
 
 var port string = ":" + os.Getenv("PORT")
 
-const dbURI string = "postgres://cxzxcotjnylvwn:8a6255cfdba74f5ff4c1a77d5a28331b7722b95c3762d9d240ac69c5a170008c@ec2-52-44-209-165.compute-1.amazonaws.com:5432/d3abobrl3jlrrf"
+var dbURI string = os.Getenv("db_uri")
 
 type partidas struct {
 	Nro         int    `gorm:"primaryKey"`
